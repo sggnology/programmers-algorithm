@@ -1,6 +1,8 @@
+import programmers.highscorekit.Carpet
 import programmers.highscorekit.Immigration
 
 fun main(args: Array<String>) {
-    val problem = Immigration()
-    problem.solution(6, intArrayOf(7,10))
+    val problem = Carpet()
+//    problem.solution(8, 1)
+    problem.solution(24, 24)
 }
