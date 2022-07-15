@@ -1,5 +1,11 @@
 package programmers.highscorekit
 
+/**
+ * 설명
+ * - 프로그래머스 > 고득점 kit > 이분탐색 > level3 > 입국심사
+ * - 경로 : https://school.programmers.co.kr/learn/courses/30/lessons/43238
+ *
+ * */
 class Immigration {
 
     fun solution(n: Int, times: IntArray): Long{

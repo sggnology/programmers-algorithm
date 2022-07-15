@@ -2,6 +2,12 @@ package programmers.highscorekit;
 
 import java.util.Arrays;
 
+/**
+ * 설명
+ * - 프로그래머스 > 고득점 kit > 스택/큐 > level2 > 주식가격
+ * - 경로 : https://school.programmers.co.kr/learn/courses/30/lessons/42584
+ *
+ * */
 public class Stock {
     public int[] solution(int[] prices) {
 
