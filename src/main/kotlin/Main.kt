@@ -1,11 +1,11 @@
-import programmers.highscorekit.Carpet
-import programmers.highscorekit.Immigration
-import programmers.highscorekit.ShortestWayInGameMap
+import programmers.highscorekit.TargetNumber
 
 fun main(args: Array<String>) {
 
-    val maps = arrayOf(intArrayOf(1,0,1,1,1),intArrayOf(1,0,1,0,1),intArrayOf(1,0,1,1,1),intArrayOf(1,1,1,0,1),intArrayOf(0,0,0,0,1))
+    val numbers = intArrayOf(1,1,1,1,1)
+    val target = 3
 
-    val problem = ShortestWayInGameMap();
-    println(problem.solution(maps))
+    val targetNumber = TargetNumber()
+    targetNumber.solution(numbers, target)
+
 }
