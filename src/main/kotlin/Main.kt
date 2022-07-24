@@ -1,11 +1,12 @@
+import programmers.highscorekit.ExpressedByN
 import programmers.highscorekit.TargetNumber
 
 fun main(args: Array<String>) {
 
-    val numbers = intArrayOf(1,1,1,1,1)
-    val target = 3
+    val N = 5;
+    val number = 11;
 
-    val targetNumber = TargetNumber()
-    targetNumber.solution(numbers, target)
+    val expressedByN = ExpressedByN()
+    expressedByN.solution(N, number)
 
 }
