@@ -22,6 +22,7 @@ class ExpressedByN {
 //            listOf(555),
 //            twoTimesUsed.map { two -> oneTimesUsed.map { one -> two + one } }.flatten(),
 //            twoTimesUsed.map { two -> oneTimesUsed.map { one -> two - one } }.flatten(),
+//            twoTimesUsed.map { two -> oneTimesUsed.map { one -> two - one } }.flatten(),
 //            twoTimesUsed.map { two -> oneTimesUsed.map { one -> two * one } }.flatten(),
 //            twoTimesUsed.map { two -> oneTimesUsed.map { one -> if(one == 0) return 0 else two / one } }.flatten(),
 //        ).flatten()
