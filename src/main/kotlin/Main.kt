@@ -1,12 +1,10 @@
 import programmers.highscorekit.ExpressedByN
+import programmers.highscorekit.HIndex
 import programmers.highscorekit.TargetNumber
+import programmers.summerwinter.FineSquare
 
 fun main(args: Array<String>) {
 
-    val N = 5;
-    val number = 12;
-
-    val expressedByN = ExpressedByN()
-    expressedByN.solution(N, number)
+    FineSquare().solution(8, 12)
 
 }
