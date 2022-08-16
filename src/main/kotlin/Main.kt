@@ -6,8 +6,8 @@ import programmers.summerwinter.FineSquare
 
 fun main(args: Array<String>) {
 
-//    var params = arrayOf(arrayOf("POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"), arrayOf("POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"))
-    var params = arrayOf(arrayOf("POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"))
+    var params = arrayOf(arrayOf("POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"), arrayOf("POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"))
+//    var params = arrayOf(arrayOf("POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"))
 
     거리두기확인하기().solution(params)
 
