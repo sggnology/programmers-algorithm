@@ -1,4 +1,4 @@
-package programmers.kakao2021채용연계형인턴십
+package programmers.kakao2021_채용연계형인턴십
 
 /**
  * 설명
