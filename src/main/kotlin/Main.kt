@@ -3,8 +3,8 @@ import programmers.kakao2021_채용연계형인턴십.두큐합같게만들기
 
 fun main(args: Array<String>) {
 
-    var queue1 = intArrayOf(3,2,7,2)
-    var queue2 = intArrayOf(4,6,5,1)
+    var queue1 = intArrayOf(1,1,1,8,10,9)
+    var queue2 = intArrayOf(1,1,1,1,1,1)
 
 
     두큐합같게만들기().solution(queue1, queue2)

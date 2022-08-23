@@ -12,37 +12,38 @@ class 두큐합같게만들기 {
     fun solution(queue1: IntArray, queue2: IntArray): Int{
         var answer = -2
 
-        var firstList = queue1.toMutableList()
-        var secondList = queue2.toMutableList()
+        var maxCounts: Long = queue1.size.toLong() * queue1.size.toLong()
 
-        var firstListSum = 0L
-        var secondListSum = 0L
+        var firstList: Queue<Int> = LinkedList(queue1.toMutableList())
+        var secondList: Queue<Int> = LinkedList(queue2.toMutableList())
 
-        var numberOfOperations = 0
+        var firstListSum = getSum(firstList)
+        var secondListSum = getSum(secondList)
+        var totalSum = firstListSum + secondListSum
+
+        if(totalSum % 2 == 1L){
+            return -1
+        }
+
+        var numberOfOperations = 0L
 
         while(true){
 
             if(firstList.isEmpty() || secondList.isEmpty()){
-                answer = -1
-                break
+                return -1
             }
 
-            if(queue1.size * 2 < numberOfOperations){
-                answer = -1
-                break
+            if(maxCounts < numberOfOperations){
+                return -1
             }
 
-//            firstListSum = firstList.sum()
-//            secondListSum = secondList.sum()
             firstListSum = getSum(firstList)
-            secondListSum = getSum(secondList)
 
-            if(firstListSum == secondListSum){
-                answer = numberOfOperations
+            if(firstListSum == totalSum/2){
+                answer = numberOfOperations.toInt()
                 break
             }
-
-            if(firstListSum < secondListSum){
+            else if(firstListSum < totalSum/2){
                 queue2ToQueue1(firstList, secondList);
             }
             else{
@@ -58,26 +59,28 @@ class 두큐합같게만들기 {
         return answer
     }
 
-    private fun getSum(list: MutableList<Int>): Long{
+    private fun getSum(list: Queue<Int>): Long{
 
         var sum = 0L
 
-        for(ele in list){
-            sum += ele
-        }
+//        for(ele in list){
+//            sum += ele
+//        }
+
+        sum = list.sumOf { it.toLong() }
 
         return sum
     }
 
-    private fun queue1ToQueue2(queue1: MutableList<Int>, queue2: MutableList<Int>){
+    private fun queue1ToQueue2(queue1: Queue<Int>, queue2: Queue<Int>){
         queue2.add(
-            queue1.removeAt(0)
+            queue1.remove()
         )
     }
 
-    private fun queue2ToQueue1(queue1: MutableList<Int>, queue2: MutableList<Int>){
+    private fun queue2ToQueue1(queue1: Queue<Int>, queue2: Queue<Int>){
         queue1.add(
-            queue2.removeAt(0)
+            queue2.remove()
         )
     }
 
