@@ -12,49 +12,91 @@ class 두큐합같게만들기 {
     fun solution(queue1: IntArray, queue2: IntArray): Int{
         var answer = -2
 
-        var maxCounts: Long = queue1.size.toLong() * queue1.size.toLong()
+        /**
+         * 설명
+         * - 두큐의 값 교환에 대한, 최악의 수
+         *
+         * 예
+         * - 1번큐: [1,1,1...](300,000개)
+         * - 2번큐: [1,1,1..,599999,1](300,000개)
+         * - 위 두큐의 값이 같아지려면
+         * - 2번큐에서 299,999 번 이동하고
+         * - 1번큐에서 599.998 번 이동해야 한다.
+         * */
+        val oneCycleCounts: Long = queue1.size.toLong() * 3 - 3
 
-        var firstList: Queue<Int> = LinkedList(queue1.toMutableList())
-        var secondList: Queue<Int> = LinkedList(queue2.toMutableList())
+        val firstQueue: Queue<Int> = LinkedList(queue1.toMutableList())
+        val secondQueue: Queue<Int> = LinkedList(queue2.toMutableList())
 
-        var firstListSum = getSum(firstList)
-        var secondListSum = getSum(secondList)
-        var totalSum = firstListSum + secondListSum
+        var firstQueueSum = getSum(firstQueue)
+        var secondQueueSum = getSum(secondQueue)
+        
+        val totalSum = firstQueueSum + secondQueueSum
+        /**
+         * 설명
+         * - 두큐합의 절반이다.
+         * */
+        val halfSum = totalSum / 2
 
+        /**
+         * 설명
+         * - 예외조건이다.
+         * - 두큐합은 홀수가 되면 안된다.
+         * */
         if(totalSum % 2 == 1L){
             return -1
         }
 
+        /**
+         * 설명
+         * - 두큐가 같아지기 위한 동작 횟수
+         * */
         var numberOfOperations = 0L
 
         while(true){
 
-            if(firstList.isEmpty() || secondList.isEmpty()){
+            /**
+             * 설명
+             * - 만일 한쪽의 큐가 비게된다는것은 값의 균형이 맞지 않는다는 소리와 같으니, `-1`을 return 한다.
+             * */
+            if(firstQueue.isEmpty() || secondQueue.isEmpty()){
                 return -1
             }
 
-            if(maxCounts < numberOfOperations){
+            /**
+             * 설명
+             * - 최악의 경우의 수보다 더 많은 경우를 시도하려 하는것은 더이상 옳은 경우가 없다는 것이다.
+             * */
+            if(oneCycleCounts < numberOfOperations){
                 return -1
             }
 
-            firstListSum = getSum(firstList)
-
-            if(firstListSum == totalSum/2){
+            /**
+             * 설명
+             * - 하나의 큐라도 절반의 값을 가진다면 정답 조건이다.
+             * */
+            if(firstQueueSum == halfSum){
                 answer = numberOfOperations.toInt()
                 break
             }
-            else if(firstListSum < totalSum/2){
-                queue2ToQueue1(firstList, secondList);
+            /**
+             * 설명
+             * - firstQueue 가 halfSum 보다 작다는 것은 firstQueue < secondQueue 과 같은 의미
+             * */
+            else if(firstQueueSum < halfSum){
+                firstQueueSum += secondQueue.peek()
+                secondQueueSum -= secondQueue.peek()
+                queue2ToQueue1(firstQueue, secondQueue)
             }
             else{
-                queue1ToQueue2(firstList, secondList);
+                firstQueueSum -= firstQueue.peek()
+                secondQueueSum += firstQueue.peek()
+                queue1ToQueue2(firstQueue, secondQueue)
             }
 
             numberOfOperations += 1
 
         }
-
-//        print("answer : $answer")
 
         return answer
     }
@@ -62,10 +104,6 @@ class 두큐합같게만들기 {
     private fun getSum(list: Queue<Int>): Long{
 
         var sum = 0L
-
-//        for(ele in list){
-//            sum += ele
-//        }
 
         sum = list.sumOf { it.toLong() }
 
