@@ -14,29 +14,50 @@ public class Solution {
         map124First.put(1, "2");
         map124First.put(2, "4");
 
-        Map<Integer, String> map124Second = new HashMap<>();
+        int tmpN = n;
 
-        map124Second.put(0, "1");
-        map124Second.put(1, "2");
-        map124Second.put(2, "4");
-
-        int tmpN = n-1;
         List<Integer> tmpList = new ArrayList<>();
+        List<Integer> reverseTmpList = new ArrayList<>();
 
         while(tmpN != 0){
             tmpList.add(tmpN % 3);
             tmpN = tmpN / 3;
         }
 
-//        tmpList.add(tmpN);
+        for(int i = tmpList.size() - 1; 0 <= i; i--){
+//            reverseTmpList.add(tmpList.get(i));
+            answer.append(tmpList.get(i));
+        }
+
+
+
+        for(int i = 0; i<answer.length() - 1; i++){
+            if(answer.charAt(i) == '1'){
+                if(i+1 < answer.length()){
+                    if(answer.charAt(i+1) == '0'){
+                        answer = answer.replace(i, i+2, "4");
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i<answer.length(); i++){
+            if(answer.charAt(i) == '0'){
+                answer = answer.replace(i, i+1, "1");
+            }
+            else if(answer.charAt(i) == '1'){
+                answer = answer.replace(i, i+1, "2");
+            }
+        }
+
+
+
+        System.out.println(answer);
+
+
 
         for (int i=0;i<tmpList.size();i++) {
-            if(i == tmpList.size()-1){
-                answer.append(map124First.get(tmpList.get(i)));
-            }
-            else{
-                answer.append(map124Second.get(tmpList.get(i)));
-            }
+            answer.append(map124First.get(tmpList.get(i)));
         }
 
         System.out.println(answer);

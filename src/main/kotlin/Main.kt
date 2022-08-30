@@ -5,6 +5,6 @@ import programmers.practice.Solution
 fun main(args: Array<String>) {
 
 //    Solution().solution(513)
-    Solution().solution(9)
+    Solution().solution(11)
 
 }
