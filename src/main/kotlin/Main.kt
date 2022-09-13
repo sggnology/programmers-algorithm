@@ -1,10 +1,9 @@
-import programmers.kakao2021_채용연계형인턴십.거리두기확인하기
-import programmers.kakao2021_채용연계형인턴십.두큐합같게만들기
-import programmers.practice.Solution
+import programmers.practice.CountryOf124
+import programmers.practice.최댓값과최솟값
 
 fun main(args: Array<String>) {
 
-//    Solution().solution(513)
-    Solution().solution(513)
+//    최댓값과최솟값().solution("-1 -2 -3 -4")
+    최댓값과최솟값().solution("-1 -1")
 
 }

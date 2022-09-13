@@ -1,8 +1,6 @@
 package programmers.practice;
 
-import java.util.*;
-
-public class Solution {
+public class CountryOf124 {
     public String solution(int n) {
         StringBuilder answer = new StringBuilder();
 
