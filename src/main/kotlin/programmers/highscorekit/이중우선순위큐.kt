@@ -3,6 +3,13 @@ package programmers.highscorekit
 import javafx.collections.transformation.SortedList
 import java.util.*
 
+/**
+ * 설명
+ * - 프로그래머스 > 고득점 kit > 이중우선순위큐
+ * - 경로 : https://school.programmers.co.kr/learn/courses/30/lessons/42628
+ *
+ * */
+
 class 이중우선순위큐 {
     /**
      * 설명
