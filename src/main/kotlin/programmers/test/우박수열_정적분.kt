@@ -16,6 +16,17 @@ class 우박수열_정적분 {
 
         val solution = mutableListOf<Double>()
 
+        /**
+         * 설명
+         * - x1 과 x2 가 같다면 해당하는 값이 없기 때문에 0
+         * - x1 보다 x2 가 낮다면 문제의 조건에 따라 -1
+         * - x1 보다 x2 가 크다면..
+         * -- 해당 되는 범위의 크기를 합하여 return
+         *
+         * Params
+         * - x1 : 시작 범위
+         * - x2 : 끝 범위
+         * */
         for(range in ranges){
             val x1 = range[0]
             val x2 = hailLength - 1 + range[1]
