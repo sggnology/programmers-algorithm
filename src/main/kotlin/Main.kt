@@ -1,3 +1,4 @@
+import finalBackendTest2022.세번째문제
 import programmers.highscorekit.단어변환
 import programmers.test.귤고르기
 import programmers.test.숫자카드나누기
@@ -10,7 +11,11 @@ import java.time.Period
 
 fun main(args: Array<String>) {
 
-    귤고르기().solution(6, intArrayOf(1, 3, 2, 5, 4, 5, 2, 3))
+//    귤고르기().solution(6, intArrayOf(1, 3, 2, 5, 4, 5, 2, 3))
 
-
+    세번째문제().solution(
+        arrayOf("1 2 3 4 5 6 7 8 9 10", "2 8 11"),
+        1,
+        11
+    )
 }
