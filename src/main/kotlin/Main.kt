@@ -8,6 +8,7 @@ import programmers.코딩테스트입문.외계행성의나이
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.Period
+import java.util.*
 
 fun main(args: Array<String>) {
 
@@ -18,4 +19,24 @@ fun main(args: Array<String>) {
         1,
         11
     )
+
+    val obj1 = Obj1(var1 = "test")
+    val obj2 = Obj1(var1 = "test")
+    val var1: String = "test"
+    val var2: String = "test"
+
+    println(obj1 == obj2)
+    println(Objects.equals(obj1, obj2))
+
+    println(obj1.var1 == var1)
+    println(var1 == var2)
+
+    println(var1.equals(var2))
+
+    println(Objects.equals(obj1.var1, var1))
+
 }
+
+data class Obj1(
+    val var1: String
+)
