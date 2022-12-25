@@ -12,6 +12,11 @@ class 테이블_해시_함수 {
         return xorOperatedValue
     }
 
+    /**
+     * 설명
+     * - 문제의 규칙에 따라 튜플을 정렬한다.
+     * - row_begin, row_end 까지 배열을 잘라낸다.
+     * */
     private fun getSortedTuples(data: Array<IntArray>, col: Int, row_begin: Int, row_end: Int): List<List<Int>>{
         return data.sortedBy { it[col - 1] }
             .map { it.toList() }
@@ -24,6 +29,10 @@ class 테이블_해시_함수 {
             .slice(IntRange(row_begin-1,row_end-1))
     }
 
+    /**
+     * 설명
+     * - 문제에서 `S_i` 방식의 문제를 해결하기 위한 함수
+     * */
     private fun getModValues(lists: List<List<Int>>, begin: Int): List<Int>{
 
         var tmpBegin = begin
@@ -43,6 +52,10 @@ class 테이블_해시_함수 {
         return modValues
     }
 
+    /**
+     * 설명
+     * - list 내부의 모든값을 `xor` 처리하는 함수
+     * */
     private fun getXorOperatedValue(list: List<Int>): Int{
 
         val startValue = list.first()
