@@ -1,61 +1,42 @@
 package programmers.test
 
+import java.util.Stack
+
 class 뒤에있는큰수찾기 {
     fun solution(numbers: IntArray): IntArray {
 
-        val resultList = mutableListOf<Int>()
+        val result = IntArray(numbers.size){-1}
+        val stack = Stack<Pair<Int, Int>>()
 
-        val rootNode = Node()
-        rootNode.numberValue = numbers.first()
-        rootNode.count = 1
+        for(numberIndex in numbers.indices){
+            val compareNumber = numbers[numberIndex]
 
-        buildNode(rootNode, numbers)
-
-        var checkNode = rootNode
-
-        while(!(checkNode.left == null && checkNode.right == null)){
-            if(checkNode.left != null){
-
-            }
-        }
-
-        return intArrayOf()
-    }
-
-    private fun buildNode(rootNode: Node, numbers: IntArray){
-
-        var currentNode = rootNode
-
-        for(numberIndex in 1 until numbers.size){
-            val targetNumber = numbers[numberIndex]
-
-            val newNode = Node()
-
-            newNode.numberValue = targetNumber
-            newNode.count += 1
-
-            if(currentNode.numberValue < targetNumber){
-                currentNode.right = newNode
-                currentNode = currentNode.right!!
-            }
-            else if(currentNode.numberValue == targetNumber){
-                currentNode.count += 1
+            if(stack.isEmpty()){
+                stack.push(Pair(numberIndex, compareNumber))
             }
             else{
-                currentNode.left = newNode
-                currentNode = currentNode.left!!
+                /**
+                 * 설명
+                 * - stack 이 비어있을때 peek, pop 을 시도하면 EmptyStackException 이 발생한다.
+                 * - 따라서 while 조건문 내부에서 stack.peek() 를 바로 시도하게 되면 안된다.
+                 * - 그렇기 떄문에 stack.empty() 를 선행조건으로 두어 먼저 검사하게 처리하여야 한다.
+                 * -
+                 * */
+                while(stack.isNotEmpty() && stack.peek().second < compareNumber){
+                    val lastStackedPair = stack.pop()
+                    result[lastStackedPair.first] = compareNumber
+                }
+                stack.push(Pair(numberIndex, compareNumber))
             }
         }
+
+        return result
     }
 
-    class Node {
-        var numberValue = 0
-        var count = 0
-
-        var left: Node? = null
-        var right: Node? = null
-    }
-
+    /**
+     * 설명
+     * - 이중 for 문 풀이방법
+     * */
 //    fun solution(numbers: IntArray): IntArray {
 //
 //        val solution = IntArray(numbers.size){0}
