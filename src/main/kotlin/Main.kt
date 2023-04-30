@@ -1,14 +1,16 @@
-import programmers.test.뒤에있는큰수찾기
-import programmers.test.무인도여행
-import programmers.test.혼자놀기의달인
-import programmers.test.혼자서하는틱택토
+import programmers.test.*
 
 fun main(args: Array<String>) {
 
-    val array1 = arrayOf("O.X", ".O.", "..X")
-    val array2 = arrayOf("OOO", "...", "XXX")
-    val array3 = arrayOf("...", ".X.", "...")
-    val array4 = arrayOf("...", "...", "...")
+//    val sequence = intArrayOf(1, 2, 3, 4, 5)
+//    val k = 7
 
-    혼자서하는틱택토().solution(array1)
+//    val sequence = intArrayOf(5, 1, 1, 2, 3, 4, 5)
+    val sequence = intArrayOf(1, 1, 2, 3, 4, 5)
+    val k = 5
+
+//    val sequence = intArrayOf(2, 2, 2, 2, 2)
+//    val k = 6
+
+    연속된_부분_수열의_합().solution(sequence, k)
 }
