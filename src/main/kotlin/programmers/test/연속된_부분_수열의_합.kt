@@ -1,5 +1,10 @@
 package programmers.test
 
+/**
+ * 설명
+ * - 투 포인터 알고리즘을 사용하여 문제를 풀이하였다.
+ * - 투 포인터 알고리즘은, 구간합을 구할 때 사용한다.
+ * */
 class 연속된_부분_수열의_합 {
     fun solution(sequence: IntArray, k: Int): IntArray {
 
